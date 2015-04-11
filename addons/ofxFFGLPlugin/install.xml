@@ -1,0 +1,39 @@
+<install>
+	<name>ofxFFGLPlugin</name>
+	<version>0.01</version>
+	<author>daniel berio</author>
+	<url>http://www.enist.org</url>
+
+	<add>	
+		<!-- 	=====================================================================	-->
+		<!--	========================== add per project using this addon =========	-->
+		<!-- 	=====================================================================	-->
+		<!-- 	On Visual Studio define OF_FFGL_NOSTDCALL in preoprocessor macros       -->
+		
+		<src>
+			<folder name="addons/ofxFFGLPlugin/src">			
+			<file>../../../addons/ofxFFGLPlugin/src/ofxFFGLPlugin.h</file>
+			<file>../../../addons/ofxFFGLPlugin/src/ofxFFGLPlugin.cpp</file>
+			<file>../../../addons/ofxFFGLPlugin/src/ofxFFGLApp.h</file>
+			<file>../../../addons/ofxFFGLPlugin/src/ofxFFGLApp.cpp</file>
+			<file>../../../addons/ofxFFGLPlugin/src/ofxFFGLWindow.h</file>
+			<file>../../../addons/ofxFFGLPlugin/src/ofxFFGLWindow.cpp</file>
+			<file>../../../addons/ofxFFGLPlugin/src/ofxFFGLParameter.h</file>
+			<file>../../../addons/ofxFFGLPlugin/src/ofxFFGLParameter.cpp</file>
+			
+			</folder>
+		</src>
+
+		<include>
+			<path>../../../addons/ofxFFGLPlugin/src</path>
+			<path>../../../addons/ofxFFGLPlugin/libs/FFGL</path>
+		</include>
+		
+		<link>
+		</link>
+
+	</add>
+	
+	
+</install>
+
