@@ -2,10 +2,12 @@
 #define _ofxFFGLWINDOW_H
 
 #include "ofAppBaseWindow.h"
+#include "ofAppGLFWWindow.h"
 
 // alot of code adapted from ofQC by vade, thanx!
 
-class ofFFGLWindow : public ofAppBaseWindow{
+class ofFFGLWindow : public ofAppGLFWWindow // ofAppBaseWindow //
+{
 public:
 		ofFFGLWindow();
 		//virtual ofFFGLWindow(){};
@@ -14,15 +16,18 @@ public:
 		void	initializeWindow();
 		void	runAppViaInfiniteLoop(ofBaseApp * appPtr);
 			
-		void			hideCursor() {};
-		void			showCursor() {};
+		void	hideCursor() {};
+		void	showCursor() {};
 		
-		void			setWindowPosition(int x, int y);
-		void			setWindowShape(int w, int h);
+        int     getHeight();
+        int     getWidth();
+    
+		void    setWindowPosition(int x, int y);
+		void	setWindowShape(int w, int h);
 			
-		int				getFrameNum();
-		float			getFrameRate();
-		double			getLastFrameTime();
+		int		getFrameNum();
+		float	getFrameRate();
+		double	getLastFrameTime();
 		
 		ofPoint	getWindowPosition(); 
 		ofPoint	getWindowSize();

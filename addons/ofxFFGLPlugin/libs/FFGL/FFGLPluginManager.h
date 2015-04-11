@@ -20,6 +20,7 @@
 #ifndef FFGLPLUGINMANAGER_STANDARD
 #define FFGLPLUGINMANAGER_STANDARD
 
+#include <ofConstants.h>
 
 #include "FFGL.h"
 

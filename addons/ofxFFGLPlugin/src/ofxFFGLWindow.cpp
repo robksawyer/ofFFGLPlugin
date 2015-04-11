@@ -8,7 +8,7 @@
 #include "ofMain.h"
 
 
-ofFFGLWindow::ofFFGLWindow() 
+ofFFGLWindow::ofFFGLWindow()
 {	
 	windowPos.set(0, 0);
 	windowSize.set(0, 0);
@@ -24,10 +24,11 @@ ofFFGLWindow::ofFFGLWindow()
 
 
 void ofFFGLWindow::setupOpenGL(int w, int h, int screenMode)
-{	
-	//ofSetupGraphicDefaults();
-
-	windowMode = screenMode;
+{
+	//setupGraphicDefaults();
+    //ofAppGLFWWindow::setupOpenGL(w, h, screenMode);
+	
+    windowMode = screenMode;
 	windowSize.set(w, h);
 }
 
@@ -67,10 +68,15 @@ void ofFFGLWindow::draw()
 	nFrameCount++;			
 }
 
+int ofFFGLWindow::getHeight()
+{
+    return (int)windowSize.y;
+}
 
-
-
-
+int ofFFGLWindow::getWidth()
+{
+    return (int)windowSize.x;
+}
 
 void ofFFGLWindow::setWindowPosition(int x, int y)
 {

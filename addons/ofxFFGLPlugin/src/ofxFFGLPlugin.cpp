@@ -63,7 +63,7 @@ void ofFFGLPlugin::initParameters()
 				SetParamInfo(i,v->getName(), FF_TYPE_EVENT, v->getBool() );
 				break;
 			}
-			
+			default: ;
 		}
 		
 	}
@@ -74,8 +74,20 @@ DWORD ofFFGLPlugin::InitGL(const FFGLViewportStruct *vp)
 {
 	_ofWin = new ofFFGLWindow();
 	
+    ofSetCurrentRenderer(ofGLRenderer::TYPE, true);
+    //ofSetCurrentRenderer(ofGLProgrammableRenderer::TYPE);
 	ofSetupOpenGL(_ofWin, vp->width, vp->height, OF_WINDOW); 
 	
+    glewExperimental = GL_TRUE;
+	GLenum err = glewInit();
+	if (GLEW_OK != err)
+	{
+		/* Problem: glewInit failed, something is seriously wrong. */
+		ofLogError("ofAppRunner") << "couldn't init GLEW: " << glewGetErrorString(err);
+	}
+
+    //glDisable( GL_DEPTH_TEST );
+
 	ofRunApp(_app);
 	
 	/// TODO! 
@@ -117,7 +129,7 @@ void	ofFFGLPlugin::setupInputTextures(ProcessOpenGLStruct* pGL)
 		ofTex->texData.tex_t = ((float)tex.Width) / tex.HardwareWidth;
 		ofTex->texData.tex_u = ((float)tex.Height) / tex.HardwareHeight;
 		ofTex->texData.glTypeInternal = GL_RGBA;  // this is just a guess...
-		ofTex->texData.glType = GL_RGBA;
+		//ofTex->texData.glType = GL_RGBA;
 		ofTex->texData.bAllocated = true;
 	}
 	
@@ -335,6 +347,7 @@ char*	ofFFGLPlugin::GetParameterDisplay(DWORD dwIndex)
 		case PARAM_STRING:
 		case PARAM_CSTRING:
 			return (char*)v->getString();
+        default: ;
 	}
 	
 	return 0;

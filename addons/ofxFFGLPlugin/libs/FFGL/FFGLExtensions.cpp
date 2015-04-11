@@ -28,7 +28,7 @@ void FFGLExtensions::Initialize()
   InitEXTFramebufferObject();
 }
 
-void *FFGLExtensions::GetProcAddress(char *name)
+void *FFGLExtensions::GetProcAddress(char const *name)
 {
 
 #ifdef _WIN32
