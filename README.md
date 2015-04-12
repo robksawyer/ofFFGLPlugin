@@ -5,16 +5,15 @@ ofxFFGLPlugin addon for openFrameworks
 Daniel Berio 2010
 for Resolume.
 
-http://www.resolume.com
-http://www.enist.org
+<http://www.resolume.com>
+<http://www.enist.org>
 
 For any info
 mail@resolume.com
 
 
-
 For more info in FFGL:
-http://freeframe.sourceforge.net/
+<http://freeframe.sourceforge.net/>
 
 
 ------------------------------------------------------------------------------------------------
@@ -40,17 +39,17 @@ Color parameters are not yet supported, but you can easily use float instead.
 ------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------
 
-To create your own ofFFGL project:
+## To create your own ofFFGL project:
+> copy one of the example projects.
 
-copy one of the example projects.
-
-in main.cpp:
-1)	In the DEFINE_FFGL_PLUGIN macro 
+### in main.cpp:
+1. In the `DEFINE_FFGL_PLUGIN` macro 
 	change testApp with your App class name, if it is different.
 	And set min and max input textures.
 	
-2)  Customize the CFFGLPluginInfo struct:
+2. Customize the CFFGLPluginInfo struct:
 
+```
 static CFFGLPluginInfo PluginInfo (
 	createPluginInstance,					// * Default creation method ( created with the DEFINE_FFGL_PLUGIN macro )
 	
@@ -69,8 +68,9 @@ static CFFGLPluginInfo PluginInfo (
 	,0										// *
 	,NULL									// *
 );
+```
 
-It is important that every plugin has a 4 character identifier. This must be different for every FFGL plugin
+### It is important that every plugin has a 4 character identifier. This must be different for every FFGL plugin
 
 
 ------------------------------------------------------------------------------------------------
@@ -85,38 +85,37 @@ If you want to convert an existing openFrameworks app to FFGL, simply change the
 
 To add custom parameters go to the constructor of the class, and use the custom functions in ofFFGLApp:
 
+```
 addFloatParameter( const char * name, float * address, float min = 0.0f, float max = 1.0f );
 addBoolParameter( const char * name, bool * address );
 addStringParameter( const char * name, std::string * address );
 addCStringParameter( const char * name, char * address );
+```
 
 example:
+```
 	addFloatParameter("test float", &myFloat, 0.0f, 100.0f );
+```
 
 the variable passed to add…Parameter MUST be declared in the class, since we are passing in it's address.
 
 At this point any variable linked with the plugin will be automatically modified by the host.
 
 
-
 If you want to do something when a parameter changes, it is possible to ovverride the function 
+```
 	virtual void onParameterChanged( ofFFGLParameter * param )
+```
 	
 you can test the name or the address of the parameter to know which one has changed.
 	
-
 Once the plugin is compiled, move the .bundle ( on Mac ) or the .dll file ( on Windows ) to the plugin directory of the host.
 
 -------------------------------------------------------------------------------------------------
 
-For an FFGL host, check out Resolume @ http://www.resolume.com
+For an FFGL host, check out Resolume @ <http://www.resolume.com>
 In the Video Preferences you can specify the directories where resolume searches for plugins at startup.
 
 For a openFrameworks FreeFrame host check out 
-http://github.com/prisonerjohn/openFrameworks/tree/master/addons/ofxFreeFrame/
-
-
-... This should be it
-
-
+<http://github.com/prisonerjohn/openFrameworks/tree/master/addons/ofxFreeFrame/>
 	
