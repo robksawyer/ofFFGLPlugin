@@ -1,9 +1,6 @@
-------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------
-
-ofxFFGLPlugin addon for openFrameworks
-Daniel Berio 2010
-for Resolume.
+# ofxFFGLPlugin addon for openFrameworks
+> Daniel Berio 2010
+> for Resolume.
 
 <http://www.resolume.com>
 <http://www.enist.org>
@@ -16,7 +13,6 @@ For more info in FFGL:
 <http://freeframe.sourceforge.net/>
 
 
-------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------
 
 
@@ -36,7 +32,6 @@ Mouse and keyboard callbacks are not supported.
 Color parameters are not yet supported, but you can easily use float instead.
 
 
-------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------
 
 ## To create your own ofFFGL project:
@@ -83,7 +78,7 @@ If you want to convert an existing openFrameworks app to FFGL, simply change the
 ------------------------------------------------------------------------------------------------
 
 
-To add custom parameters go to the constructor of the class, and use the custom functions in ofFFGLApp:
+### To add custom parameters go to the constructor of the class, and use the custom functions in ofFFGLApp:
 
 ```
 addFloatParameter( const char * name, float * address, float min = 0.0f, float max = 1.0f );
@@ -92,9 +87,9 @@ addStringParameter( const char * name, std::string * address );
 addCStringParameter( const char * name, char * address );
 ```
 
-example:
+## Example:
 ```
-	addFloatParameter("test float", &myFloat, 0.0f, 100.0f );
+addFloatParameter("test float", &myFloat, 0.0f, 100.0f );
 ```
 
 the variable passed to add…Parameter MUST be declared in the class, since we are passing in it's address.
@@ -104,12 +99,15 @@ At this point any variable linked with the plugin will be automatically modified
 
 If you want to do something when a parameter changes, it is possible to ovverride the function 
 ```
-	virtual void onParameterChanged( ofFFGLParameter * param )
+virtual void onParameterChanged( ofFFGLParameter * param )
 ```
 	
 you can test the name or the address of the parameter to know which one has changed.
+
 	
-Once the plugin is compiled, move the .bundle ( on Mac ) or the .dll file ( on Windows ) to the plugin directory of the host.
+
+#### Once the plugin is compiled, move the .bundle ( on Mac ) or the .dll file ( on Windows ) to the plugin directory of the host.
+
 
 -------------------------------------------------------------------------------------------------
 
